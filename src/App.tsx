@@ -2,8 +2,8 @@ import clsx from "clsx";
 import { useState } from "react";
 import "./App.css";
 import Cell from "./components/Cell";
-const BOARD_LENGTH = 4;
-const WIN_LENGTH = 4;
+const BOARD_LENGTH = 6;
+const WIN_LENGTH = 3;
 
 enum TURNS {
   X = "x",
@@ -12,67 +12,183 @@ enum TURNS {
 
 // plus x, y for 1 or minus x, y for 1
 // [0, 0] -> [1, 1] -> [2, 2]
-const getDiagonal = (x: number, y: number) => {
-  let diagonal = [];
-  
-  if (x > y) {
-    diagonal.push([x - y, 0]);
+const checkDiagonal = (
+  steps: { [key: string]: TURNS },
+  move: { x: number; y: number },
+  player: TURNS
+) => {
+  const diagonal = [move];
+  let x: number | undefined = move.x - 1;
+  let y: number | undefined = move.y - 1;
+
+  // go up -> x - 1, y - 1
+  while (x !== undefined && y !== undefined) {
+    const value = steps[`${x}-${y}`];
+    if (value === player) {
+      diagonal.unshift({ x, y });
+      x--;
+      y--;
+    } else {
+      x = undefined;
+      y = undefined;
+    }
   }
 
-  return diagonal;
-}
-
-const getVertical = (x: number, y: number) => {
-  let vertical = [];
-  for (let i = 0; i < BOARD_LENGTH; i++) {
-    vertical.push([x + i, y]);
-  } 
-  return vertical;
-}
-
-const getHorizontal = (x: number, y: number) => {
-  let horizontal = [];
-  for (let i = 0; i < BOARD_LENGTH; i++) {
-    horizontal.push([x, y + i]);
+  // go down -> x + 1, y + 1
+  x = move.x + 1;
+  y = move.y + 1;
+  while (x !== undefined && y !== undefined) {
+    const value = steps[`${x}-${y}`];
+    if (value === player) {
+      diagonal.push({ x, y });
+      x++;
+      y++;
+    } else {
+      x = undefined;
+      y = undefined;
+    }
   }
-  return horizontal;
-}
+
+  return diagonal.length >= WIN_LENGTH;
+};
+
+// plus x, y for 1 or minus x, y for 1
+// [0, 0] -> [1, 1] -> [2, 2]
+const checkReverseDiagonal = (
+  steps: { [key: string]: TURNS },
+  move: { x: number; y: number },
+  player: TURNS
+) => {
+  const diagonal = [move];
+  let x: number | undefined = move.x + 1;
+  let y: number | undefined = move.y - 1;
+
+  // go up -> x + 1, y - 1
+  while (x !== undefined && y !== undefined) {
+    const value = steps[`${x}-${y}`];
+    if (value === player) {
+      diagonal.unshift({ x, y });
+      x++;
+      y--;
+    } else {
+      x = undefined;
+      y = undefined;
+    }
+  }
+
+  // go down -> x - 1, y + 1
+  x = move.x - 1;
+  y = move.y + 1;
+  while (x !== undefined && y !== undefined) {
+    const value = steps[`${x}-${y}`];
+    if (value === player) {
+      diagonal.push({ x, y });
+      x--;
+      y++;
+    } else {
+      x = undefined;
+      y = undefined;
+    }
+  }
+
+  return diagonal.length >= WIN_LENGTH;
+};
+
+const checkVertical = (
+  steps: { [key: string]: TURNS },
+  move: { x: number; y: number },
+  player: TURNS
+) => {
+  let vertical = [move];
+  let left: number | undefined = move.x - 1;
+  let right: number | undefined = move.x + 1;
+
+  // go up -> x - 1
+  while (left !== undefined) {
+    const value = steps[`${left}-${move.y}`];
+    if (value === player) {
+      vertical.unshift({ x: left, y: move.y });
+      left--;
+    } else {
+      left = undefined;
+    }
+  }
+
+  // go down -> x + 1
+  while (right !== undefined) {
+    const value = steps[`${right}-${move.y}`];
+    if (value === player) {
+      vertical.unshift({ x: right, y: move.y });
+      right++;
+    } else {
+      right = undefined;
+    }
+  }
+
+  return vertical.length >= WIN_LENGTH;
+};
+
+const checkHorizontal = (
+  steps: { [key: string]: TURNS },
+  move: { x: number; y: number },
+  player: TURNS
+) => {
+  const horizontal = [move];
+  let head: number | undefined = move.y - 1;
+  let tail: number | undefined = move.y + 1;
+
+  // go up -> y - 1
+  while (head !== undefined) {
+    const up = steps[`${move.x}-${head}`];
+    if (up === player) {
+      horizontal.unshift({ x: move.x, y: head });
+      head--;
+    } else {
+      head = undefined;
+    }
+  }
+
+  // go down -> y + 1
+  while (tail !== undefined) {
+    const down = steps[`${move.x}-${tail}`];
+    if (down === player) {
+      horizontal.push({ x: move.x, y: tail });
+      tail++;
+    } else {
+      tail = undefined;
+    }
+  }
+
+  return horizontal.length >= WIN_LENGTH;
+};
 
 function App() {
   const [steps, setSteps] = useState<{ [key: string]: TURNS }>({});
   const [turn, setTurn] = useState<TURNS>(TURNS.X);
-
-  const checkWin = (x: number, y: number) => {
-    let win = false;
-    // [x, y]
-    
-    // check diagonal
-    // plus x, y for 1 or minus x, y for 1
-    // [0, 0] -> [1, 1] -> [2, 2]
-
-    // check vertical
-    // plus x for 1 or minus x for 1
-    // [0, 0] -> [1, 0] -> [2, 0]
-    
-    // check horizontal
-    // plus y for 1 or minus y for 1
-    // [0, 0] -> [0, 1] -> [0, 2]
-
-    return win;
-  };
+  const [win, setWin] = useState<TURNS | null>(null);
 
   const handleClick = (x: number, y: number) => {
-    if (steps[`${x}-${y}`]) return;
+    if (steps[`${x}-${y}`] || win) return;
     setSteps({ ...steps, [`${x}-${y}`]: turn });
     setTurn(turn === TURNS.X ? TURNS.O : TURNS.X);
 
-    checkWin(x, y);
+    // checkWin(x, y);
+    const a = checkHorizontal(steps, { x, y }, turn);
+    const b = checkVertical(steps, { x, y }, turn);
+    const c = checkDiagonal(steps, { x, y }, turn);
+    const d = checkReverseDiagonal(steps, { x, y }, turn);
+
+    if (a || b || c || d) {
+      setWin(turn);
+      alert(`${turn} win`);
+    }
   };
 
   const reset = () => {
     setSteps({});
     setTurn(TURNS.X);
-  }
+    setWin(null);
+  };
 
   return (
     <div>
