@@ -204,8 +204,9 @@ function App() {
               <Cell
                 key={`${x}-${y}`}
                 className={clsx(
-                  steps[`${x}-${y}`] === TURNS.X ? "bg-red-500" : "",
-                  steps[`${x}-${y}`] === TURNS.O ? "bg-blue-500" : ""
+                  'hover:bg-slate-200 transition-all duration-200',
+                  steps[`${x}-${y}`] === TURNS.X ? "bg-red-500 hover:bg-red-500" : "",
+                  steps[`${x}-${y}`] === TURNS.O ? "bg-blue-500 hover:bg-blue-500" : ""
                 )}
                 onClick={() => handleClick(x, y)}
               >

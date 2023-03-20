@@ -12,7 +12,7 @@ const Cell: React.FC<PropsWithChildren<Props>> = ({
 }) => {
   return (
     <div
-      className={`w-28 h-28 border flex justify-center items-center ${className}`}
+      className={`w-28 h-28 border flex justify-center items-center cursor-pointer ${className}`}
       onClick={onClick}
     >
       {children}
