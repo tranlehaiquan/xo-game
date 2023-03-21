@@ -1,0 +1,304 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`snapshot app > should match snapshot 1`] = `
+<div>
+  <div>
+    <div>
+      <h1
+        class="text-4xl text-center"
+      >
+        Tic Tac Toe
+      </h1>
+      <h2
+        class="text-2xl text-center"
+      >
+        Turn: 
+        x
+      </h2>
+      <button>
+        Reset
+      </button>
+    </div>
+    <div
+      class="inline-flex border"
+    >
+      <div
+        class="border-black"
+      >
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+      </div>
+      <div
+        class="border-black"
+      >
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+      </div>
+      <div
+        class="border-black"
+      >
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+      </div>
+      <div
+        class="border-black"
+      >
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+      </div>
+      <div
+        class="border-black"
+      >
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+      </div>
+      <div
+        class="border-black"
+      >
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+        <div
+          class="w-28 h-28 border flex justify-center items-center cursor-pointer hover:bg-slate-200 transition-all duration-200"
+        >
+          <span
+            class="text-3xl"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
