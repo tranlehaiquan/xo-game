@@ -95,7 +95,7 @@ export const checkVertical = (
   move: { x: number; y: number },
   player: TURNS
 ) => {
-  let vertical = [move];
+  const vertical = [move];
   let left: number | undefined = move.x - 1;
   let right: number | undefined = move.x + 1;
 
